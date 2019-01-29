@@ -20,7 +20,7 @@ class Starter extends Component {
     const { show, togglePopup } = this.props; 
     return (
       <div className={`call-starter ${show ? 'active' : 'hide'}`}>
-        <a href='' onClick={(evt) => { evt.preventDefault(); togglePopup(); this.setState({ hideTooltip: false }); }}>
+        <a href='#close' onClick={(evt) => { evt.preventDefault(); togglePopup(); this.setState({ hideTooltip: false }); }}>
           <div className='call-starter__icon'></div>
         </a>
       <InfoCard show={this.state.showTooltip} togglePopup={togglePopup} {...{messages:this.props.messages}} 

@@ -66,13 +66,13 @@ class InfoCard extends Component {
     ));
     return (
       <div className={`call-starter__info ${this.props.show ? '' : 'hide'}`}>
-        <a href='' onClick={this.props.onClose} className='call-starter__info-close'>&times;</a>
+        <a href='#close' onClick={this.props.onClose} className='call-starter__info-close'>&times;</a>
 
         <Enhc {...this.props} />
 
         {(this.props.phoneState || this.props.confirmReceived || this.props.errorCode || this.props.phoneError) ? (
           <div className="call-starter__actions">
-            <a href="" className="btn btn--message " onClick={(evt) => {
+            <a href="#close" className="btn btn--message " onClick={(evt) => {
               evt.preventDefault();
               this.props.closeConfirm() ; this.props.closeTokenConfirm();
             }}>{this.props.messages.main.buttonSmallConf}</a>
@@ -80,7 +80,7 @@ class InfoCard extends Component {
         ) : (this.props.token || this.props.phone) ?
             (
               <div className="call-starter__actions">
-                <a href="" className="btn btn--message " onClick={(evt) => {
+                <a href="#close" className="btn btn--message " onClick={(evt) => {
                   evt.preventDefault();
                   this.props.token ? this.props.callNow({ eventType: 'CallNow' }) : this.props.phone ? this.props.phoneCall({ phone: this.props.phone }) : console.log('No phone number');
                   this.props.togglePopup();
@@ -90,7 +90,7 @@ class InfoCard extends Component {
             : !this.props.phone ?
               (
                 <div className="call-starter__actions">
-                  <a href="" className="btn btn--message " onClick={(evt) => {
+                  <a href="#close" className="btn btn--message " onClick={(evt) => {
                     evt.preventDefault();
                     this.props.togglePopup();
                   }}>{this.props.messages.second.buttonSmallTel}</a>
