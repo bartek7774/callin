@@ -1,0 +1,67 @@
+.popup-starter{
+  height: 100vh;
+  width:100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black,.3);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  
+  &:target, &.active{
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s;
+  }
+  &__close{
+    z-index: 10;
+    &:link, &:visited{
+      outline: none;
+      display: inline-block;
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 0;
+      right: 0;
+      text-decoration: none;
+      line-height: 1;
+      border-radius: 50%;
+      color:$color-grey-dark;
+      background-color: whitesmoke;
+      font-size: 32px;
+      text-align: center;
+      box-shadow: 0 0 12px 0 rgba($color-black,.5);
+      transform: translateX(50%) translateY(-50%);
+    }
+    &:hover{
+      box-shadow: 0 0 6px 0 rgba($color-black,.5);
+      color:darken($color-grey-dark,25%);
+    }
+    backface-visibility: hidden;
+    transition: all .2s;
+  }
+  &__content{
+    @include centered;
+    opacity: 0;
+    top: 10%;
+    background-color: $color-white;
+    border-radius: 3px;
+    backface-visibility: hidden;
+    transform: translate(-50%,-50%) scale(.1);
+    transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55) .2s;
+    @include onSmall{
+      width: 80%;
+    }
+    @include onBig{
+      width: 60%;
+    }
+    @include onXXL{
+      width: 50%;
+    }
+  }
+  &:target &__content, &.active &__content{
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1); 
+  }
+}

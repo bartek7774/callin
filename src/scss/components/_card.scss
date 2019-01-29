@@ -1,0 +1,142 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: inherit;
+    backface-visibility: hidden;
+    flex: 3 1 0;
+    &>*{
+      box-sizing: border-box;
+    }
+    &__header{
+      flex: 6 1 0;
+      text-align: center;
+      padding: 40px 20px 10px 20px;
+      h2{
+        line-height: 1.4;
+        font-size: 25px;
+        font-weight: 300;
+        max-width: 500px;
+        margin: 10px auto;
+        @include onSmall{
+          line-height: 1.2;
+          font-size: 20px;
+        }
+      }
+    }
+    &__content{
+      flex: 12 1 0;
+      padding: 0 20px 10px 20px;
+      // background-color: burlywood;
+    }
+    &__footer{
+      flex: 2 1 0;
+      position: relative;
+      text-align: center;
+      margin-top: 5px;
+      padding: 8px 20px;
+      // background-color: aquamarine;
+      p{
+        width: 80%;
+        font-size: 13px;
+        font-weight: 300;
+        margin: 0 auto;
+        &::before{
+          content:'';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: lighten($color-grey-dark,15%);
+          box-shadow: 0 1px 3px rgba(0, 0, 0,.3);
+          transform: scaleX(.6);
+        }
+        @include onSmall{
+          padding: 5px 0;
+          line-height: 1.2;
+          font-size: 11px;
+        }
+      }
+    }
+  }
+  
+  
+  .profile{
+    overflow: hidden;
+    flex: 2 1 0;
+    box-shadow: -3px 0 8px 0 rgba(0, 0, 0,.3); 
+    display: none;
+    @include onXXL{
+        display: block;
+    }
+    &__img{
+      width: 100%;
+      height: 100%;
+      // overflow: hidden;
+      // flex: 1 1 0;
+      position: relative;
+      background-size: cover;
+      background-position: left center;
+      background-image:  
+        url(https://picsum.photos/600/600?image=43);
+      margin: 0;
+      padding: 0;
+      opacity: .8;
+      transition: all .3s;
+      // &:hover{
+      //   opacity: 1;
+      //   transform: scale(1.05);
+      //   .profile__card{
+      //      transform: skewY(-10deg) translateY(60%) scale(1);
+      //   }
+      //   .profile__motto{
+      //     opacity: 1;
+      //     transform: skewY(10deg) scale(1);
+      //     transition: opacity .25s ease-in .15s;
+      //   }
+      // }
+    }
+    &__card{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: skewY(-10deg) translateY(80%);
+      background-image: linear-gradient(to top, darken($color-primary,40%),$color-primary);
+      box-shadow: 0 0 12px rgba(0, 0, 0,.6); 
+      transition: transform .3s;
+    }
+    &__motto{
+      opacity: 0;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+      color: $color-white;
+      backface-visibility: hidden;
+      transform: skewY(10deg) translateY(50%);
+      transition: opacity .1s;
+    }
+  }
+  
+  .fadeInCard {
+  
+    .profile__img{
+      opacity: 1;
+      transition: opacity .5s ease-in .6s;
+        .profile__card{
+          transform: skewY(-10deg) translateY(60%) scale(1);
+          transition: transform .4s ease-in 1s;
+        }
+        .profile__motto{
+          opacity: 1;
+          transition: opacity .25s ease-in 1.5s;
+        }
+    }
+    
+  }

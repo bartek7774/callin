@@ -1,0 +1,66 @@
+.btn{
+  position: relative;
+  &,&:visited,&:link{
+    outline: none;
+    font-size: 16px;
+    display: block;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 auto;
+    border-radius: 100px;
+    box-shadow: 0 5px 15px rgba($color-black, 0.3);   
+    border: none;
+    cursor: pointer; 
+    transition: all .3s;
+  }
+  &--white{
+    background-color: $color-white;
+    color:$color-white;
+
+    &::after{
+      background-color: $color-white;
+    }
+  }
+  &--primary{
+    background-color: $color-primary;
+    color:$color-white;
+    &::after{
+      background-color:  $color-primary-dark;
+    }
+  }
+
+  &--confirm{
+    width: 30%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  &:hover{
+    background-color: darken($color-primary, 4%);
+    box-shadow: 0 5px 8px rgba($color-black, 0.3);   
+  }
+
+  &:active,&:focus{
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba($color-black, 0.2);
+  }
+
+  &:disabled{
+    &:hover{
+     transform: translateY(0);
+    box-shadow: 0 3px 5px rgba($color-black, 0.3);  
+    }
+    box-shadow: 0 3px 5px rgba($color-black, 0.3);   
+    background-color: $color-grey-dark;
+  }
+  @include onSmall{
+    width: 100%;
+  }
+  &--message:link,&--message:visited{
+    box-sizing: border-box;
+    padding: 4px 6px;
+    width: 70%;
+    color: $color-white;
+    background-color: $color-primary-dark;
+  }
+}

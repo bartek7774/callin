@@ -1,0 +1,187 @@
+.call-starter{
+  position: fixed;
+  display: block;
+  bottom: 40px; 
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  opacity: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(0,0,0,.3);
+  background-color: $call-form-bg-button; 
+  transform: translateY(200px);
+  transition: all .4s;
+  &:target, &.active{
+    opacity: 1;
+    transform: translate(0);
+    .call-starter__info{
+      animation-name: slideDownShow; 
+      animation-duration: .4s; 
+      animation-delay: .9s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(.64,1.59,.49,.79);
+    }
+    .call-starter__info.hide{
+      animation-name: slideDownHide;
+      animation-duration: .3s;
+      animation-delay: 0ms; 
+      animation-fill-mode: both;
+      animation-timing-function: ease-in;
+    }
+  }
+  &.slideIn{
+     .call-starter__info{
+      animation-name: slideDownShow; 
+      animation-duration: .4s; 
+      animation-delay: .9s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(.64,1.59,.49,.79);
+    }
+  }
+  
+  &::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: $call-form-bg-button; 
+    animation-name: phone-ring;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in;
+  }
+ 
+  & > a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    transition: all .3s;
+    background-color: transparent;
+    &:hover{
+      background-color: $call-form-bg-button; 
+      box-shadow: 0 0 18px 0 rgba(0,0,0, .3);
+      transform: scale(1.1);
+    }
+  }
+
+  &__icon{
+  @include centered;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4MC41NiA0ODAuNTYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4MC41NiA0ODAuNTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMzY1LjM1NCwzMTcuOWMtMTUuNy0xNS41LTM1LjMtMTUuNS01MC45LDBjLTExLjksMTEuOC0yMy44LDIzLjYtMzUuNSwzNS42Yy0zLjIsMy4zLTUuOSw0LTkuOCwxLjggICAgYy03LjctNC4yLTE1LjktNy42LTIzLjMtMTIuMmMtMzQuNS0yMS43LTYzLjQtNDkuNi04OS04MWMtMTIuNy0xNS42LTI0LTMyLjMtMzEuOS01MS4xYy0xLjYtMy44LTEuMy02LjMsMS44LTkuNCAgICBjMTEuOS0xMS41LDIzLjUtMjMuMywzNS4yLTM1LjFjMTYuMy0xNi40LDE2LjMtMzUuNi0wLjEtNTIuMWMtOS4zLTkuNC0xOC42LTE4LjYtMjcuOS0yOGMtOS42LTkuNi0xOS4xLTE5LjMtMjguOC0yOC44ICAgIGMtMTUuNy0xNS4zLTM1LjMtMTUuMy01MC45LDAuMWMtMTIsMTEuOC0yMy41LDIzLjktMzUuNywzNS41Yy0xMS4zLDEwLjctMTcsMjMuOC0xOC4yLDM5LjFjLTEuOSwyNC45LDQuMiw0OC40LDEyLjgsNzEuMyAgICBjMTcuNiw0Ny40LDQ0LjQsODkuNSw3Ni45LDEyOC4xYzQzLjksNTIuMiw5Ni4zLDkzLjUsMTU3LjYsMTIzLjNjMjcuNiwxMy40LDU2LjIsMjMuNyw4Ny4zLDI1LjRjMjEuNCwxLjIsNDAtNC4yLDU0LjktMjAuOSAgICBjMTAuMi0xMS40LDIxLjctMjEuOCwzMi41LTMyLjdjMTYtMTYuMiwxNi4xLTM1LjgsMC4yLTUxLjhDNDAzLjU1NCwzNTUuOSwzODQuNDU0LDMzNi45LDM2NS4zNTQsMzE3Ljl6IiBmaWxsPSIjRkZGRkZGIi8+CgkJPHBhdGggZD0iTTM0Ni4yNTQsMjM4LjJsMzYuOS02LjNjLTUuOC0zMy45LTIxLjgtNjQuNi00Ni4xLTg5Yy0yNS43LTI1LjctNTguMi00MS45LTk0LTQ2LjlsLTUuMiwzNy4xICAgIGMyNy43LDMuOSw1Mi45LDE2LjQsNzIuOCwzNi4zQzMyOS40NTQsMTg4LjIsMzQxLjc1NCwyMTIsMzQ2LjI1NCwyMzguMnoiIGZpbGw9IiNGRkZGRkYiLz4KCQk8cGF0aCBkPSJNNDAzLjk1NCw3Ny44Yy00Mi42LTQyLjYtOTYuNS02OS41LTE1Ni03Ny44bC01LjIsMzcuMWM1MS40LDcuMiw5OCwzMC41LDEzNC44LDY3LjJjMzQuOSwzNC45LDU3LjgsNzksNjYuMSwxMjcuNSAgICBsMzYuOS02LjNDNDcwLjg1NCwxNjkuMyw0NDQuMzU0LDExOC4zLDQwMy45NTQsNzcuOHoiIGZpbGw9IiNGRkZGRkYiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+  background-size: cover;
+}
+
+  &__info{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 160px;
+    max-height: 220px;
+    padding: 0 0 12px;
+    opacity: 0;
+    text-align: center;
+    border-radius: 4px;
+    color: $call-form-color;  
+    background-color: $call-form-bg;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.3); 
+    backface-visibility: hidden; 
+    // transition: all .3s;
+    visibility: hidden;
+    &:hover  &-close{
+      visibility: visible;
+      opacity: 1;
+      color:darken($color-grey-dark,25%);
+    }
+  }
+
+  &__info-close{
+    z-index: 10;
+    display: inline-block;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    &:link, &:visited{
+      outline: none;
+      display: inline-block;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      top: 0;
+      right: 0;
+      text-decoration: none;
+      line-height: 1;
+      border-radius: 50%;
+      color:$color-grey-dark;
+      background-color: whitesmoke;
+      font-size: 18px;
+      text-align: center;
+      box-shadow: 0 0 12px 0 rgba($color-black,.5);
+      transform: translateX(50%) translateY(-50%);
+    }
+    &:hover{
+      box-shadow: 0 0 6px 0 rgba($color-black,.5);
+      color:darken($color-grey-dark,25%);
+    }
+    backface-visibility: hidden;
+    transition: all .2s;
+  }
+
+  &__greet{
+    position: relative;
+    margin: 0;
+    margin-top: 4px;
+    padding: 4px 4px 8px;
+    line-height: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $call-form-color;
+      transform: scale(.66);
+    }
+  }
+
+  &__message{ 
+    margin: 5px 0 3px;
+    padding: 3px 9px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.3;
+    span{
+      display: block;
+      margin: 0;
+      padding: 3px 5px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+  } 
+
+  &__actions{
+    padding: 3px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+}

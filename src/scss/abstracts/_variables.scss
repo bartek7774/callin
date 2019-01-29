@@ -1,0 +1,26 @@
+$default-font-size: 10px;
+
+$color-black: #000;
+$color-white: white;
+$color-grey-dark: #777;
+$color-primary:royalblue;
+$color-primary-light: lighten($color-primary,10%);
+$color-primary-dark: darken($color-primary,10%);
+
+$call-form-bg: white;
+$call-form-bg-button: $color-primary;
+$call-form-br: white;
+$call-form-color: #484949;
+
+$tabbed-form-bg: darken($call-form-bg,5%);
+
+$color-input-ok: #28b485;
+
+$color-secondary-light:#ffb900;
+$color-input-wrong:#b61111;
+
+$color-grey-light-1: #ddd;
+$color-grey-light-2: #ccc;
+$color-grey-dark-1: #999;
+$color-grey-dark-2: #666;
+$color-grey-dark-3: #333;

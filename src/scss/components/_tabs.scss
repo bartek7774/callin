@@ -1,0 +1,122 @@
+.tabs{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    color: $call-form-color;
+    background-color: $tabbed-form-bg;
+    box-shadow: 0 2rem 4rem rgba($color-black,.2);
+    border-radius: 5px;
+    overflow: hidden;
+    & > * {
+      box-sizing: border-box;
+    }
+    &__nav{
+      display: flex;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      &-item{
+          flex: 1 1 0;
+          position: relative;
+          margin: 0;
+          padding: 0;
+          border-radius: 0;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          list-style-type: none;
+          font-size: 14px;
+          cursor: pointer;
+          z-index: 2;
+          border-bottom: 1px solid darken($tabbed-form-bg,33%);
+          background-color: darken($tabbed-form-bg,5%);
+          backface-visibility: hidden;
+          transition: opacity .3s ease-in .4s, background-color .3s ease;
+          &::before{
+            content:'';
+            position: absolute;
+            left: 7%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-image:url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4NS40MTEgNDg1LjQxMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDg1LjQxMSA0ODUuNDExOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCI+CjxnPgoJPHBhdGggZD0iTTAsODEuODI0djMyMS43NjNoNDg1LjQxMVY4MS44MjRIMHogTTI0Mi43MDgsMjgwLjUyNkw0My42MTIsMTA1LjY5MWgzOTguMTg3TDI0Mi43MDgsMjgwLjUyNnogICAgTTE2My4zOTcsMjQyLjY0OUwyMy44NjcsMzY1LjE3OFYxMjAuMTE5TDE2My4zOTcsMjQyLjY0OXogTTE4MS40ODIsMjU4LjUzM2w2MS4yMiw1My43NjJsNjEuMjItNTMuNzYyTDQ0MS45MjQsMzc5LjcySDQzLjQ4NyAgIEwxODEuNDgyLDI1OC41MzN6IE0zMjIuMDA4LDI0Mi42NTVsMTM5LjUzNS0xMjIuNTM2djI0NS4wNTlMMzIyLjAwOCwyNDIuNjU1eiIgZmlsbD0iIzQ4NDk0OSIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+            background-size: cover;
+            transform: translateY(-50%);
+            transition: transform .2s;
+          }
+  
+          &:nth-of-type(odd){
+            &::before{
+  background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNMjU2LDMyYzEyMy41LDAsMjI0LDEwMC41LDIyNCwyMjRTMzc5LjUsNDgwLDI1Niw0ODBTMzIsMzc5LjUsMzIsMjU2UzEzMi41LDMyLDI1NiwzMiBNMjU2LDBDMTE0LjYyNSwwLDAsMTE0LjYyNSwwLDI1NiAgIHMxMTQuNjI1LDI1NiwyNTYsMjU2czI1Ni0xMTQuNjI1LDI1Ni0yNTZTMzk3LjM3NSwwLDI1NiwwTDI1NiwweiBNMzk4LjcxOSwzNDEuNTk0bC0xLjQzOC00LjM3NSAgIGMtMy4zNzUtMTAuMDYyLTE0LjUtMjAuNTYyLTI0Ljc1LTIzLjM3NUwzMzQuNjg4LDMwMy41Yy0xMC4yNS0yLjc4MS0yNC44NzUsMC45NjktMzIuNDA1LDguNWwtMTMuNjg4LDEzLjY4OCAgIGMtNDkuNzUtMTMuNDY5LTg4Ljc4MS01Mi41LTEwMi4yMTktMTAyLjI1bDEzLjY4OC0xMy42ODhjNy41LTcuNSwxMS4yNS0yMi4xMjUsOC40NjktMzIuNDA2TDE5OC4yMTksMTM5LjUgICBjLTIuNzgxLTEwLjI1LTEzLjM0NC0yMS4zNzUtMjMuNDA2LTI0Ljc1bC00LjMxMy0xLjQzOGMtMTAuMDk0LTMuMzc1LTI0LjUsMC4wMzEtMzIsNy41NjNsLTIwLjUsMjAuNSAgIGMtMy42NTYsMy42MjUtNiwxNC4wMzEtNiwxNC4wNjNjLTAuNjg4LDY1LjA2MywyNC44MTMsMTI3LjcxOSw3MC44MTMsMTczLjc1YzQ1Ljg3NSw0NS44NzUsMTA4LjMxMyw3MS4zNDUsMTczLjE1Niw3MC43ODEgICBjMC4zNDQsMCwxMS4wNjMtMi4yODEsMTQuNzE5LTUuOTM4bDIwLjUtMjAuNUMzOTguNjg4LDM2Ni4wNjIsNDAyLjA2MiwzNTEuNjU2LDM5OC43MTksMzQxLjU5NHoiIGZpbGw9IiM0OTQ5NDkiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+            }
+          }
+  
+          &:not(:first-of-type){
+            &::after{
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 1px;
+              height: 100%;
+              background-color: darken($tabbed-form-bg,33%);
+              transform: scaleY(.4);
+            }
+          }
+   
+          &.active{
+            background-color: $tabbed-form-bg;
+            border-color: transparent;
+            z-index: 7;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3);
+            &::after{
+              background-color: transparent;
+            }
+            &::before{
+               transform: translateY(-50%) scale(1.2);
+            }
+          }
+  
+          &.active+&{
+            &::after{
+              background-color: transparent;
+            }
+          }
+          &:hover{
+            background-color: $tabbed-form-bg;
+          }
+      }
+    }
+  
+    &__content{
+        display: flex;
+        width: 100%;
+        // top: 0;
+        border: none;
+        max-height: 90vh;
+        // height: calc(100% - 40px);
+        // position: absolute;
+        // opacity: 0;
+        // visibility: hidden;
+        margin: 0;
+        padding: 0;
+        &>*{
+          max-height: 0;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(20px);
+        }
+        &.fadeInCard>*{
+          max-height: 90vh;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          transition: opacity .4s ease-in, transform .2s ease-out;
+        }
+    }
+  }

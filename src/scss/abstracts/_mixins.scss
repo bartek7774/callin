@@ -1,0 +1,32 @@
+@mixin clearfix {
+    &::after{
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  
+  @mixin centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  @mixin onSmall{
+    @media only screen and (max-width: 800px) {
+      @content;
+    }   
+  }
+  
+  @mixin onBig{
+    @media only screen and (min-width: 800px) {
+      @content;
+    }
+  }
+  
+  @mixin onXXL{
+    @media only screen and (min-width: 1400px) {
+      @content;
+    }
+  }

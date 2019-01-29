@@ -1,0 +1,40 @@
+.u-center-text{
+    text-align: center !important;
+  }
+  .u-m{
+    &b{
+      &-small{
+        margin-bottom: 15px !important;
+      }
+      &-medium{
+        margin-bottom: 30px !important;
+      }
+      &-large{
+        margin-bottom: 50px !important;
+      }
+    }
+    &t{
+      &-small{
+        margin-top: 15px !important;
+      }
+      &-medium{
+        margin-top: 30px !important;
+      }
+      &-large{
+        margin-top: 50px !important;
+      }
+    }
+  }
+
+  .g-m-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    color: $call-form-color;
+    background-color: $tabbed-form-bg;
+    box-shadow: 0 2rem 4rem rgba($color-black,.2);
+    border-radius: 5px;
+    overflow: hidden;
+  }
